@@ -1,0 +1,11 @@
+<template name="researchSubjectPreviewPage">
+  <div id="researchSubjectPreviewPage" class="fullheight padded page">
+    {{> recordHeader type="record" url="researchSubjects" spreadsheet=false  imageGrid=false}}
+      <div id="researchSubjectPreviewCard" class="card-contents" style="{{getOpacity}}">
+        <h2 id="researchSubjectfullNameText">{{profile.name}}</h2>
+        <p id="notesText">
+          {{description}}
+        </p>
+      </div>
+  </div>
+</template>

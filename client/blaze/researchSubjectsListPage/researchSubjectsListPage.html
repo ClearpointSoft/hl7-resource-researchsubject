@@ -1,0 +1,34 @@
+
+<template name="researchSubjectsListPage">
+  <div id="researchSubjectsListPage" class="page" style="{{getPageHeight}}">
+    {{> recordHeader url="researchSubjects" spreadsheet=false  imageGrid=false}}
+    <div class="horizontally-padded page" style="{{getOpacityWithCorner}}">
+      <input id="researchSubjectSearchInput" type="text" class="glass fullwidth form-control" placeholder="search..." value="{{getRecordSearchFilter}}" />
+      <ul id="researchSubjectsUnorderedList">
+        {{#if hasNoContent}}
+          <li id="noResultsMessage" class="addRecordIcon">
+            <article class="noResultsMessage">
+              <span>There are no results!  Click to add one.</span>
+            </article>
+            <div class="fadeAway"></div>
+          </li>
+
+        {{else}}
+          {{#each researchSubjectsList}}
+            <li class="researchSubjectItem">
+              <img class="avatar" src="{{getAvatar}}" alt="" />
+              <article class="researchSubjectMetadata">
+                <h2 class="fullNameText">{{ getName }}</h2>
+                <span class="pull-right barcode gray idText">{{_id}}</span>
+                <h6 class="descriptionText">{{dateOfBirth}}</h6>
+                <h6 class="descriptionText">{{gender}}</h6>
+              </article>
+              <div class="fadeAway"></div>
+            </li>
+          {{/each}}
+        {{/if}}
+      </ul>
+    </div>
+    {{> recordFooter }}
+  </div>
+</template>
